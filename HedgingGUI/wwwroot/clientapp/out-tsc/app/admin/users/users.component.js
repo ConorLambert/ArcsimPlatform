@@ -8,21 +8,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
-var AdminComponent = /** @class */ (function () {
-    /** admin ctor */
-    function AdminComponent() {
+import { AdminService } from 'ClientApp/core/services/api.client.generated';
+var usersComponent = /** @class */ (function () {
+    /** users ctor */
+    function usersComponent(service) {
+        var _this = this;
+        service.get().subscribe(function (result) {
+            _this.vm = result;
+        }, function (error) { return console.error(error); });
     }
-    AdminComponent = __decorate([
+    usersComponent = __decorate([
         Component({
-            selector: 'admin',
-            templateUrl: './admin.component.html',
-            styleUrls: ['./admin.component.css']
+            selector: 'users',
+            templateUrl: './users.component.html',
+            styleUrls: ['./users.component.css']
         })
-        /** admin component*/
+        /** users component*/
         ,
-        __metadata("design:paramtypes", [])
-    ], AdminComponent);
-    return AdminComponent;
+        __metadata("design:paramtypes", [AdminService])
+    ], usersComponent);
+    return usersComponent;
 }());
-export { AdminComponent };
-//# sourceMappingURL=admin.component.js.map
+export { usersComponent };
+//# sourceMappingURL=users.component.js.map

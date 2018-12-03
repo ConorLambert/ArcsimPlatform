@@ -1,7 +1,5 @@
-﻿<div style="border: 1px solid red">admin Component</div>
-
-<ul>
-    <li *ngFor="let user of vm.users">
-        {{user.name}}
-    </li>
-</ul>
+﻿<mat-tab-group>
+    <mat-tab label="Users"> <users></users> </mat-tab>
+    <mat-tab label="Server State"> Content 2 </mat-tab>
+    <mat-tab label="Configuration"> Content 3 </mat-tab>
+</mat-tab-group>

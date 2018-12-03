@@ -84,7 +84,7 @@ var AdminService = /** @class */ (function () {
             return blobToText(responseBlob).pipe(_observableMergeMap(function (_responseText) {
                 var result200 = null;
                 var resultData200 = _responseText === "" ? null : JSON.parse(_responseText, _this.jsonParseReviver);
-                result200 = resultData200 ? ActionResultOfUserListViewModel.fromJS(resultData200) : null;
+                result200 = resultData200 ? UserListViewModel.fromJS(resultData200) : null;
                 return _observableOf(result200);
             }));
         }
@@ -103,36 +103,6 @@ var AdminService = /** @class */ (function () {
     return AdminService;
 }());
 export { AdminService };
-var ActionResultOfUserListViewModel = /** @class */ (function () {
-    function ActionResultOfUserListViewModel(data) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    this[property] = data[property];
-            }
-        }
-    }
-    ActionResultOfUserListViewModel.prototype.init = function (data) {
-        if (data) {
-            this.result = data["result"];
-            this.value = data["value"] ? UserListViewModel.fromJS(data["value"]) : undefined;
-        }
-    };
-    ActionResultOfUserListViewModel.fromJS = function (data) {
-        data = typeof data === 'object' ? data : {};
-        var result = new ActionResultOfUserListViewModel();
-        result.init(data);
-        return result;
-    };
-    ActionResultOfUserListViewModel.prototype.toJSON = function (data) {
-        data = typeof data === 'object' ? data : {};
-        data["result"] = this.result;
-        data["value"] = this.value ? this.value.toJSON() : undefined;
-        return data;
-    };
-    return ActionResultOfUserListViewModel;
-}());
-export { ActionResultOfUserListViewModel };
 var UserListViewModel = /** @class */ (function () {
     function UserListViewModel(data) {
         if (data) {
